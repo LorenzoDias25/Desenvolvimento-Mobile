@@ -1,20 +1,18 @@
 fun main(){
-    val msg = "lorenzo"
+    println("Digite o nome para testar se é palindromo: ")
+    var msg = readLine() ?: ""
+    msg = msg.lowercase()
+    var msg2 = ""
     val vetor = msg.toCharArray()
-    val vetor2: Array<Char?> = arrayOfNulls(msg.length)
+    val vetor2 = Array<Char>(msg.length){' '}
     var cont = msg.length - 1
-    var aux = 0
-    while (cont > 0){
-        vetor2[aux] = vetor[cont] 
+    while (cont >= 0){
+        msg2 += vetor[cont]
         cont--
-        aux++
     }
-    aux = 0
-    while(aux < (msg.length - 1)){
-        print(vetor[aux] + " - ")
+    if(msg.equals(msg2)){
+        println("A palavra: $msg é um palindromo")
+    } else {
+        println("A palavra $msg não é um palindromo")
     }
-    println()
-    /*while(aux < msg.length){
-        print(vetor2[aux] + " - ")
-    }*/
 }
