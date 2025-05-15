@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#FFFFFF">
+    android:background="@color/white">
 
-    <!-- Campo para digitar o número do quarto -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +28,6 @@
             android:textSize="16sp"/>
     </LinearLayout>
 
-    <!-- Café da Manhã -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +36,6 @@
         android:textStyle="bold"
         android:layout_marginBottom="8dp"/>
 
-    <!-- Opções de café da manhã -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,7 +63,6 @@
             android:text="SUCO"/>
     </LinearLayout>
 
-    <!-- RadioGroup de frutas (inicialmente invisível e desabilitado) -->
     <RadioGroup
         android:id="@+id/radioGroupFrutas"
         android:layout_width="match_parent"
@@ -98,7 +93,6 @@
             android:text="MAÇÃ"/>
     </RadioGroup>
 
-    <!-- Checkbox para Intolerância a lactose -->
     <CheckBox
         android:id="@+id/checkIntolerancia"
         android:layout_width="wrap_content"
@@ -109,7 +103,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"/>
 
-    <!-- Checkbox para Alergia ao glúten -->
     <CheckBox
         android:id="@+id/checkAlergia"
         android:layout_width="wrap_content"
@@ -119,14 +112,13 @@
         android:textStyle="bold"
         android:layout_marginBottom="8dp"/>
 
-    <!-- Botão Salvar -->
     <Button
         android:id="@+id/btnSalvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SALVAR"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#4CAF50"
-        android:textColor="#FFFFFF"/>
+        android:backgroundTint="@color/verdeEsmeralda"
+        android:textColor="@color/white"/>
 
 </LinearLayout>
