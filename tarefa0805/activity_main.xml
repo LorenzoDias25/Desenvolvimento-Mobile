@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- Campo para digitar o número do quarto -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Número do Quarto"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/etNumeroQuarto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Digite o número do quarto"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <!-- Café da Manhã -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CAFÉ DA MANHÃ"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Opções de café da manhã -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+
+        <CheckBox
+            android:id="@+id/checkCafe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CAFÉ"
+            android:layout_marginRight="16dp"/>
+
+        <CheckBox
+            android:id="@+id/checkLeite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LEITE"
+            android:layout_marginRight="16dp"/>
+
+        <CheckBox
+            android:id="@+id/checkSuco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SUCO"/>
+    </LinearLayout>
+
+    <!-- RadioGroup de frutas (inicialmente invisível e desabilitado) -->
+    <RadioGroup
+        android:id="@+id/radioGroupFrutas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:enabled="false"
+        android:layout_marginBottom="8dp">
+
+        <RadioButton
+            android:id="@+id/radioLaranja"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LARANJA"
+            android:layout_marginRight="16dp"/>
+
+        <RadioButton
+            android:id="@+id/radioUva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UVA"
+            android:layout_marginRight="16dp"/>
+
+        <RadioButton
+            android:id="@+id/radioMaca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MAÇÃ"/>
+    </RadioGroup>
+
+    <!-- Checkbox para Intolerância a lactose -->
+    <CheckBox
+        android:id="@+id/checkIntolerancia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Intolerância a lactose"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Checkbox para Alergia ao glúten -->
+    <CheckBox
+        android:id="@+id/checkAlergia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ALERGIA AO GLÚTEN"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Botão Salvar -->
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SALVAR"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>
