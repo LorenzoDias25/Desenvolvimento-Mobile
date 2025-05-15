@@ -1,3 +1,18 @@
+package com.example.projetotesteandroid
+
+import android.app.Dialog
+import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -8,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         val btnSalvar = findViewById<Button>(R.id.btnSalvar)
         val etNumeroQuarto = findViewById<EditText>(R.id.etNumeroQuarto)
 
-        // Controle do RadioGroup de frutas
         checkSuco.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 radioGroupFrutas.visibility = View.VISIBLE
@@ -20,11 +34,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Ação do botão Salvar
         btnSalvar.setOnClickListener {
             val numeroQuarto = etNumeroQuarto.text.toString()
             if (numeroQuarto.isBlank()) {
-                Toast.makeText(this, "Por favor, digite o número do quarto", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Digite o número do quarto", Toast.LENGTH_SHORT).show()
             } else {
                 mostrarDialogoConfirmacao(numeroQuarto)
             }
@@ -32,24 +45,20 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun mostrarDialogoConfirmacao(numeroQuarto: String) {
-        // Criar o diálogo
+
         val dialog = Dialog(this)
         dialog.setContentView(R.layout.custom_dialog)
         dialog.setCancelable(true)
 
-        // Configurar os elementos do diálogo
         val tvDialogTitle = dialog.findViewById<TextView>(R.id.tvDialogTitle)
         val tvDialogMessage = dialog.findViewById<TextView>(R.id.tvDialogMessage)
         val btnSim = dialog.findViewById<Button>(R.id.btnSim)
         val btnNao = dialog.findViewById<Button>(R.id.btnNao)
 
-        // Definir o título com o número do quarto
         tvDialogTitle.text = "Quarto: $numeroQuarto"
 
-        // Construir a mensagem com as escolhas
         val mensagem = StringBuilder()
-        
-        // Opções de café da manhã
+
         if (findViewById<CheckBox>(R.id.checkCafe).isChecked) {
             mensagem.append("• CAFÉ\n")
         }
@@ -64,18 +73,16 @@ class MainActivity : AppCompatActivity() {
                 mensagem.append("  Fruta escolhida: ${selectedFruit.text}\n")
             }
         }
-        
-        // Condições de saúde
+
         if (findViewById<CheckBox>(R.id.checkIntolerancia).isChecked) {
             mensagem.append("• Intolerância a lactose\n")
         }
         if (findViewById<CheckBox>(R.id.checkAlergia).isChecked) {
-            mensagem.append("• ALERGIA AO GLÚTEN\n")
+            mensagem.append("• Alergia ao glúten\n")
         }
-        
+
         tvDialogMessage.text = if (mensagem.isNotEmpty()) mensagem.toString() else "Nenhuma opção selecionada"
 
-        // Ações dos botões
         btnSim.setOnClickListener {
             Toast.makeText(this, "Pedido confirmado para o quarto $numeroQuarto", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
@@ -86,10 +93,8 @@ class MainActivity : AppCompatActivity() {
             dialog.dismiss()
         }
 
-        // Mostrar o diálogo
         dialog.show()
-        
-        // Ajustar o tamanho do diálogo
+
         dialog.window?.setLayout(
             (resources.displayMetrics.widthPixels * 0.9).toInt(),
             WindowManager.LayoutParams.WRAP_CONTENT
