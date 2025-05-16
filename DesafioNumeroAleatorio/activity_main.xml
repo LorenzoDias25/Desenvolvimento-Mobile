@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gerar número aleatório, digite os valores do intervalo"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp"/>
+
+        <EditText
+            android:id="@+id/limiteInferior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Limite inferior"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/limiteSuperior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Limite superior"
+            android:textSize="16sp"/>
+        <Button
+            android:id="@+id/btnGerar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gerar"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/verdeEsmeralda"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+
+</LinearLayout>
