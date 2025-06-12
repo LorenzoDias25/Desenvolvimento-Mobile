@@ -1,0 +1,61 @@
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: UserListScreen(),
+    );
+  }
+}
+
+class UserListScreen extends StatefulWidget {
+  @override
+  _UserListScreenState createState() => _UserListScreenState();
+}
+
+class _UserListScreenState extends State<UserListScreen> {
+  List users = []; // Lista para armazenar os usuários
+  bool loading = true; // Controle de carregamento
+
+  // Função para buscar os usuários
+  Future fetchUsers() async {
+    var response = await http.get(Uri.parse('https://jsonplaceholder.typicode.com/users'));
+    
+    if (response.statusCode == 200) {
+      setState(() {
+        users = json.decode(response.body); // Converte o JSON para lista
+        loading = false; // Para o carregamento
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchUsers(); // Chama a função quando o widget é criado
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Usuários')),
+      body: loading
+          ? Center(child: CircularProgressIndicator()) // Mostra carregando
+          : ListView.builder(
+              itemCount: users.length,
+              itemBuilder: (context, index) {
+                var user = users[index];
+                return ListTile(
+                  title: Text(user['name']),
+                  subtitle: Text(user['email']),
+                );
+              },
+            ),
+    );
+  }
+}
