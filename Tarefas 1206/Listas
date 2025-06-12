@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Lista Básica'),
+        ),
+        body: ListaItens(),
+      ),
+    );
+  }
+}
+
+class ListaItens extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: [
+        ListTile(
+          leading: Icon(Icons.email),
+          title: Text('E-mail'),
+        ),
+        ListTile(
+          leading: Icon(Icons.phone),
+          title: Text('Telefone'),
+        ),
+        ListTile(
+          leading: Icon(Icons.directions_car),
+          title: Text('Carro'),
+        ),
+        ListTile(
+          leading: Icon(Icons.home),
+          title: Text('Casa'),
+        ),
+        ListTile(
+          leading: Icon(Icons.school),
+          title: Text('Escola'),
+        ),
+      ],
+    );
+  }
+}
