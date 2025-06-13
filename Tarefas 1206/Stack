@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Layout com Stack'),
+        ),
+        body: Center(
+          child: LayoutComStack(),
+        ),
+      ),
+    );
+  }
+}
+
+class LayoutComStack extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center, // Centraliza os widgets filhos
+      children: [
+        // Imagem de fundo
+        Container(
+          width: 300,
+          height: 200,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: NetworkImage('https://picsum.photos/300/200'), // Imagem aleatória
+              fit: BoxFit.cover,
+            ),
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+        
+        // Ícone sobreposto
+        Icon(
+          Icons.star,
+          size: 50,
+          color: Colors.yellow,
+        ),
+      ],
+    );
+  }
+}
