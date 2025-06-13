@@ -1,0 +1,39 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Container Estilizado'),
+        ),
+        body: Center(
+          child: ContainerEstilizado(),
+        ),
+      ),
+    );
+  }
+}
+
+class ContainerEstilizado extends StatelessWidget {
+  const ContainerEstilizado({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.lightBlue, // Fundo azul claro
+        borderRadius: BorderRadius.circular(10), // Bordas arredondadas
+      ), // Fecha o BoxDecoration aqui
+      padding: EdgeInsets.all(16), // Espaçamento interno de 16px (agora está no Container)
+      child: Text('Este é um container estilizado'), // Child do Container
+    );
+  }
+}
